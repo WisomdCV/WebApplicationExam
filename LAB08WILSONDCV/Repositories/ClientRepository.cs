@@ -7,6 +7,7 @@ using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using LAB08WILSONDCV.DTOs;
 
 namespace LAB08WILSONDCV.Repositories
 {
@@ -30,6 +31,22 @@ namespace LAB08WILSONDCV.Repositories
             return await _context.Clients
                 .Where(c => c.Name.ToLower().StartsWith(name.ToLower()))
                 .ToListAsync();
+        }
+        
+        // ej9
+        public async Task<ClientWithOrderCountDto?> GetClientWithMostOrdersAsync()
+        {
+            return await _context.Orders
+                .GroupBy(o => o.Client) 
+                .Select(g => new ClientWithOrderCountDto
+                {
+                    ClientId = g.Key.ClientId,
+                    Name = g.Key.Name,
+                    Email = g.Key.Email,
+                    OrderCount = g.Count() 
+                })
+                .OrderByDescending(dto => dto.OrderCount) 
+                .FirstOrDefaultAsync(); 
         }
     }
 }

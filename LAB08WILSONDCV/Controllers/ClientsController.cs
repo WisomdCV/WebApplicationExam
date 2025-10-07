@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using LAB08WILSONDCV.DTOs;
 
 namespace LAB08WILSONDCV.Controllers
 {
@@ -36,6 +37,18 @@ namespace LAB08WILSONDCV.Controllers
             }
             
             return Ok(clients);
+        }
+        
+        // ej 9
+        [HttpGet("with-most-orders")]
+        public async Task<ActionResult<ClientWithOrderCountDto>> GetClientWithMostOrders()
+        {
+            var client = await _clientRepository.GetClientWithMostOrdersAsync();
+            if (client == null)
+            {
+                return NotFound("No se encontraron clientes o pedidos.");
+            }
+            return Ok(client);
         }
     }
 }

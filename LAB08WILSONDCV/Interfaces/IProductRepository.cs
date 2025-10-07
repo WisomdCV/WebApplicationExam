@@ -8,6 +8,7 @@ namespace LAB08WILSONDCV.Interfaces
     {
         Task<IEnumerable<Product>> GetByPriceGreaterThanAsync(decimal price);
         Task<Product?> GetMostExpensiveAsync();
+        Task<decimal> GetAveragePriceAsync();
         Task<IEnumerable<Product>> GetProductsWithoutDescriptionAsync();
     }
 }

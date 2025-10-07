@@ -44,5 +44,24 @@ namespace LAB08WILSONDCV.Controllers
 
             return Ok(product);
         }
+        //ej7
+        [HttpGet("average-price")]
+        public async Task<ActionResult<decimal>> GetAverageProductPrice()
+        {
+            var average = await _productRepository.GetAveragePriceAsync();
+            return Ok(average);
+        }
+
+        //ej8
+        [HttpGet("without-description")]
+        public async Task<ActionResult<IEnumerable<Product>>> GetProductsWithoutDescription()
+        {
+            var products = await _productRepository.GetProductsWithoutDescriptionAsync();
+            if (!products.Any())
+            {
+                return NotFound("No se encontraron productos sin descripción.");
+            }
+            return Ok(products);
+        }
     }
 }

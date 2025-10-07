@@ -34,5 +34,19 @@ namespace LAB08WILSONDCV.Repositories
                 .OrderByDescending(p => p.Price)
                 .FirstOrDefaultAsync();
         }
+        
+        // ej7
+        public async Task<decimal> GetAveragePriceAsync()
+        {
+            return await _context.Products.AverageAsync(p => p.Price);
+        }
+
+        // ej8
+        public async Task<IEnumerable<Product>> GetProductsWithoutDescriptionAsync()
+        {
+            return await _context.Products
+                .Where(p => string.IsNullOrEmpty(p.Description))
+                .ToListAsync();
+        }
     }
 }

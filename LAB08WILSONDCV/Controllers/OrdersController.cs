@@ -31,5 +31,19 @@ namespace LAB08WILSONDCV.Controllers
 
             return Ok(details);
         }
+        
+        //ej4
+        [HttpGet("{orderId}/total-quantity")]
+        public async Task<ActionResult<int>> GetTotalQuantityInOrder(int orderId)
+        {
+            var totalQuantity = await _orderRepository.GetTotalProductQuantityByOrderIdAsync(orderId);
+            
+            if (totalQuantity == null)
+            {
+                return NotFound($"No se encontró la orden con ID {orderId}.");
+            }
+            return Ok(totalQuantity);
+        }
+        
     }
 }

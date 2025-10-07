@@ -30,5 +30,19 @@ namespace LAB08WILSONDCV.Repositories
                 })
                 .ToListAsync();
         }
+        
+        //ej4
+        public async Task<int?> GetTotalProductQuantityByOrderIdAsync(int orderId)
+        {
+            var orderExists = await _context.Orders.AnyAsync(o => o.OrderId == orderId);
+            if (!orderExists)
+            {
+                return null; 
+            }
+            
+            return await _context.OrderDetails
+                .Where(od => od.OrderId == orderId)
+                .SumAsync(od => od.Quantity);
+        }
     }
 }

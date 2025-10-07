@@ -31,5 +31,18 @@ namespace LAB08WILSONDCV.Controllers
             
             return Ok(products);
         }
+        //ej5
+        [HttpGet("most-expensive")]
+        public async Task<ActionResult<Product>> GetMostExpensiveProduct()
+        {
+            var product = await _productRepository.GetMostExpensiveAsync();
+
+            if (product == null)
+            {
+                return NotFound("No se encontraron productos.");
+            }
+
+            return Ok(product);
+        }
     }
 }

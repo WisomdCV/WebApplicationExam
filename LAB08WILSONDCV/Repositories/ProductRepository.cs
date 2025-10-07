@@ -26,5 +26,13 @@ namespace LAB08WILSONDCV.Repositories
                 .Where(p => p.Price > price)
                 .ToListAsync();
         }
+        
+        // ej5
+        public async Task<Product?> GetMostExpensiveAsync()
+        {
+            return await _context.Products
+                .OrderByDescending(p => p.Price)
+                .FirstOrDefaultAsync();
+        }
     }
 }

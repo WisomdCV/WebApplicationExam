@@ -9,10 +9,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="80c2b520-5006-4b13-9d15-7e62d79b6bc8" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/LAB08WILSONDCV/DTOs/OrderDto.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.WebApplicationExam/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.WebApplicationExam/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LAB08WILSONDCV/Controllers/ProductsController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/LAB08WILSONDCV/Controllers/ProductsController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LAB08WILSONDCV/Interfaces/IProductRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/LAB08WILSONDCV/Interfaces/IProductRepository.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LAB08WILSONDCV/Repositories/ProductRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/LAB08WILSONDCV/Repositories/ProductRepository.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LAB08WILSONDCV/Controllers/OrdersController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/LAB08WILSONDCV/Controllers/OrdersController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LAB08WILSONDCV/Interfaces/IOrderRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/LAB08WILSONDCV/Interfaces/IOrderRepository.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LAB08WILSONDCV/Repositories/OrderRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/LAB08WILSONDCV/Repositories/OrderRepository.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -41,6 +42,7 @@
     <setting file="file://$PROJECT_DIR$/LAB08WILSONDCV/Controllers/ClientsController.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/LAB08WILSONDCV/Controllers/OrdersController.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/LAB08WILSONDCV/Controllers/ProductsController.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/LAB08WILSONDCV/DTOs/OrderDto.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/LAB08WILSONDCV/DTOs/ProductDetailDto.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/LAB08WILSONDCV/Data/LinqDbContext.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/LAB08WILSONDCV/Interfaces/IClientRepository.cs" root0="FORCE_HIGHLIGHTING" />
@@ -124,7 +126,7 @@
       <option name="presentableId" value="Default" />
       <updated>1759861569446</updated>
       <workItem from="1759861570638" duration="3185000" />
-      <workItem from="1759864837785" duration="2099000" />
+      <workItem from="1759864837785" duration="3153000" />
     </task>
     <servers />
   </component>

@@ -44,5 +44,25 @@ namespace LAB08WILSONDCV.Repositories
                 .Where(od => od.OrderId == orderId)
                 .SumAsync(od => od.Quantity);
         }
+        
+        //ej6
+        public async Task<IEnumerable<OrderDto>> GetOrdersAfterDateAsync(DateTime date)
+        {
+            return await _context.Orders
+                .Include(o => o.Client)
+                .Where(o => o.OrderDate > date)
+                .Select(o => new OrderDto
+                {
+                    OrderId = o.OrderId,
+                    OrderDate = o.OrderDate,
+                    Client = new ClientInOrderDto
+                    {
+                        ClientId = o.Client.ClientId,
+                        Name = o.Client.Name,
+                        Email = o.Client.Email
+                    }
+                })
+                .ToListAsync();
+        }
     }
 }

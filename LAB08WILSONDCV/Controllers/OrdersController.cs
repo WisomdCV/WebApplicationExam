@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using LAB08WILSONDCV.Models;
 
 namespace LAB08WILSONDCV.Controllers
 {
@@ -45,5 +46,21 @@ namespace LAB08WILSONDCV.Controllers
             return Ok(totalQuantity);
         }
         
+        //ej6
+        [HttpGet("after-date/{date}")]
+        public async Task<ActionResult<IEnumerable<OrderDto>>> GetOrdersAfterDate(DateTime date)
+        {
+            //fix utc
+            var utcDate = DateTime.SpecifyKind(date, DateTimeKind.Utc);
+            
+            var orders = await _orderRepository.GetOrdersAfterDateAsync(utcDate);
+
+            if (!orders.Any())
+            {
+                return NotFound($"No se encontraron órdenes después de la fecha {date:yyyy-MM-dd}.");
+            }
+
+            return Ok(orders);
+        }
     }
 }

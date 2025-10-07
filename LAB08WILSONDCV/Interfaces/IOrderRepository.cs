@@ -8,5 +8,8 @@ namespace LAB08WILSONDCV.Interfaces
     {
         Task<IEnumerable<ProductDetailDto>> GetProductDetailsByOrderIdAsync(int orderId);
         Task<int?> GetTotalProductQuantityByOrderIdAsync(int orderId);
+        Task<IEnumerable<OrderDto>> GetOrdersAfterDateAsync(DateTime date);
+        Task<decimal> GetAveragePriceAsync();
+        Task<IEnumerable<Product>> GetProductsWithoutDescriptionAsync();
     }
 }

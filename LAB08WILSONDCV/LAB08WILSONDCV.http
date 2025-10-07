@@ -1,0 +1,6 @@
+@LAB08WILSONDCV_HostAddress = http://localhost:5262
+
+GET {{LAB08WILSONDCV_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

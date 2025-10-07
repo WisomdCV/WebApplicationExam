@@ -9,14 +9,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="80c2b520-5006-4b13-9d15-7e62d79b6bc8" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/LAB08WILSONDCV/LAB08WILSONDCV.csproj" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/LAB08WILSONDCV/LAB08WILSONDCV.http" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/LAB08WILSONDCV/Program.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/LAB08WILSONDCV/Properties/launchSettings.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/LAB08WILSONDCV/appsettings.Development.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/LAB08WILSONDCV/appsettings.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/WebApplicationExam.sln" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/LAB08WILSONDCV/Data/LinqDbContext.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/LAB08WILSONDCV/Interfaces/IClientRepository.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/LAB08WILSONDCV/Models/Client.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/LAB08WILSONDCV/Models/Order.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/LAB08WILSONDCV/Models/OrderDetail.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/LAB08WILSONDCV/Models/Product.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/LAB08WILSONDCV/Repositories/ClientRepository.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.WebApplicationExam/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.WebApplicationExam/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LAB08WILSONDCV/LAB08WILSONDCV.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/LAB08WILSONDCV/LAB08WILSONDCV.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LAB08WILSONDCV/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/LAB08WILSONDCV/Program.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LAB08WILSONDCV/appsettings.json" beforeDir="false" afterPath="$PROJECT_DIR$/LAB08WILSONDCV/appsettings.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -26,10 +29,34 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
+  "lastFilter": {
+    "state": "OPEN",
+    "assignee": "WisomdCV"
+  }
+}]]></component>
+  <component name="GithubPullRequestsUISettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "url": "https://github.com/WisomdCV/WebApplicationExam.git",
+    "accountId": "39e0cab5-499a-4d09-ab8e-f7a76bb151f1"
+  }
+}]]></component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/LAB08WILSONDCV/Data/LinqDbContext.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/LAB08WILSONDCV/Interfaces/IClientRepository.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/LAB08WILSONDCV/Models/Client.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/LAB08WILSONDCV/Models/Order.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/LAB08WILSONDCV/Models/OrderDetail.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/LAB08WILSONDCV/Models/Product.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/LAB08WILSONDCV/Repositories/ClientRepository.cs" root0="FORCE_HIGHLIGHTING" />
+  </component>
   <component name="ProjectColorInfo"><![CDATA[{
   "associatedIndex": 8
 }]]></component>
   <component name="ProjectId" id="33kWUfQBPRwNYuomkCbXMinMQtB" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -91,7 +118,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1759861569446</updated>
-      <workItem from="1759861570638" duration="1259000" />
+      <workItem from="1759861570638" duration="2736000" />
     </task>
     <servers />
   </component>

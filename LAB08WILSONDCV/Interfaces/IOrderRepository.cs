@@ -1,0 +1,11 @@
+using LAB08WILSONDCV.DTOs;
+using System.Collections.Generic;
+using System.Threading.Tasks;
+
+namespace LAB08WILSONDCV.Interfaces
+{
+    public interface IOrderRepository
+    {
+        Task<IEnumerable<ProductDetailDto>> GetProductDetailsByOrderIdAsync(int orderId);
+    }
+}

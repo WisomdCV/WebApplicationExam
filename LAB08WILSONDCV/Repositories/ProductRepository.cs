@@ -22,6 +22,7 @@ namespace LAB08WILSONDCV.Repositories
         {
             //where
             return await _context.Products
+                .AsNoTracking() //Evitamos que EF Core rastree los objetos en el contexto - Mejor rendimiento
                 .Where(p => p.Price > price)
                 .ToListAsync();
         }

@@ -50,5 +50,17 @@ namespace LAB08WILSONDCV.Controllers
             }
             return Ok(client);
         }
+        
+        //Ej 11
+        [HttpGet("{clientId}/products")]
+        public async Task<ActionResult<IEnumerable<Product>>> GetProductsSoldToClient(int clientId)
+        {
+            var products = await _clientRepository.GetProductsSoldToClientAsync(clientId);
+            if (!products.Any())
+            {
+                return NotFound($"No se encontraron productos vendidos al cliente con ID {clientId}.");
+            }
+            return Ok(products);
+        }
     }
 }

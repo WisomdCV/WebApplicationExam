@@ -11,5 +11,6 @@ namespace LAB08WILSONDCV.Interfaces
         
         Task<IEnumerable<Client>> GetByNameAsync(string name);
         Task<ClientWithOrderCountDto> GetClientWithMostOrdersAsync();
+        Task<IEnumerable<Product>> GetProductsSoldToClientAsync(int clientId);
     }
 }

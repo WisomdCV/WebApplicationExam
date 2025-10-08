@@ -48,6 +48,17 @@ namespace LAB08WILSONDCV.Repositories
                 .OrderByDescending(dto => dto.OrderCount) 
                 .FirstOrDefaultAsync(); 
         }
+        
+        // ej11
+        public async Task<IEnumerable<Product>> GetProductsSoldToClientAsync(int clientId)
+        {
+            return await _context.Orders
+                .Where(o => o.ClientId == clientId)
+                .SelectMany(o => o.OrderDetails) 
+                .Select(od => od.Product)      
+                .Distinct()                     
+                .ToListAsync();
+        }
     }
 }
 

@@ -62,5 +62,12 @@ namespace LAB08WILSONDCV.Controllers
 
             return Ok(orders);
         }
+        
+        [HttpGet("with-details")]
+        public async Task<ActionResult<IEnumerable<OrderWithDetailsDto>>> GetAllOrdersWithDetails()
+        {
+            var orders = await _orderRepository.GetAllOrdersWithDetailsAsync();
+            return Ok(orders);
+        }
     }
 }

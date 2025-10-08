@@ -64,5 +64,32 @@ namespace LAB08WILSONDCV.Repositories
                 })
                 .ToListAsync();
         }
+        
+        // ej10
+        public async Task<IEnumerable<OrderWithDetailsDto>> GetAllOrdersWithDetailsAsync()
+        {
+            return await _context.Orders
+                .AsNoTracking() 
+                .Include(o => o.Client)
+                .Include(o => o.OrderDetails)
+                .ThenInclude(od => od.Product) 
+                .Select(o => new OrderWithDetailsDto
+                {
+                    OrderId = o.OrderId,
+                    OrderDate = o.OrderDate,
+                    Client = new ClientInOrderDto
+                    {
+                        ClientId = o.Client.ClientId,
+                        Name = o.Client.Name,
+                        Email = o.Client.Email
+                    },
+                    Details = o.OrderDetails.Select(od => new ProductDetailDto
+                    {
+                        ProductName = od.Product.Name,
+                        Quantity = od.Quantity
+                    }).ToList()
+                })
+                .ToListAsync();
+        }
     }
 }

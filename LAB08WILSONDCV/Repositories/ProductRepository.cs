@@ -48,5 +48,15 @@ namespace LAB08WILSONDCV.Repositories
                 .Where(p => string.IsNullOrEmpty(p.Description))
                 .ToListAsync();
         }
+        
+        //ej 12
+        public async Task<IEnumerable<Client>> GetClientsByProductAsync(int productId)
+        {
+            return await _context.OrderDetails
+                .Where(od => od.ProductId == productId)
+                .Select(od => od.Order.Client) 
+                .Distinct() // cliente una sola vez
+                .ToListAsync();
+        }
     }
 }

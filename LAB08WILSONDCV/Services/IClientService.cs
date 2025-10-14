@@ -1,18 +1,17 @@
-using LAB08WILSONDCV.Models;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using LAB08WILSONDCV.DTOs;
+using LAB08WILSONDCV.Models;
 
-namespace LAB08WILSONDCV.Interfaces
+namespace LAB08WILSONDCV.Services
 {
-    public interface IClientRepository
+    public interface IClientService
     {
-        Task<IEnumerable<Client>> GetAllAsync();
-        
-        Task<IEnumerable<Client>> GetByNameAsync(string name);
         Task<ClientWithOrderCountDto?> GetClientWithMostOrdersAsync();
-        Task<IEnumerable<Product>> GetProductsSoldToClientAsync(int clientId);
         Task<IEnumerable<ClientProductCountDto>> GetClientsWithProductCountAsync();
         Task<IEnumerable<SalesByClientDto>> GetTotalSalesByClientAsync();
+        Task<IEnumerable<Client>> GetAllAsync();
+        Task<IEnumerable<Client>> GetByNameAsync(string name);
+        Task<IEnumerable<Product>> GetProductsSoldToClientAsync(int clientId);
     }
 }

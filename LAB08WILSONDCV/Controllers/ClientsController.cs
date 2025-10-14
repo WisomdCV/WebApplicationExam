@@ -1,4 +1,4 @@
-using LAB08WILSONDCV.Interfaces;
+using LAB08WILSONDCV.Services;
 using LAB08WILSONDCV.Models;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
@@ -12,24 +12,24 @@ namespace LAB08WILSONDCV.Controllers
     [Route("api/[controller]")]
     public class ClientsController : ControllerBase
     {
-        private readonly IClientRepository _clientRepository;
+        private readonly IClientService _clientService;
 
-        public ClientsController(IClientRepository clientRepository)
+        public ClientsController(IClientService clientService)
         {
-            _clientRepository = clientRepository;
+            _clientService = clientService;
         }
         
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Client>>> GetClients()
         {
-            var clients = await _clientRepository.GetAllAsync();
+            var clients = await _clientService.GetAllAsync();
             return Ok(clients);
         }
         //Ej1
         [HttpGet("search/{name}")]
         public async Task<ActionResult<IEnumerable<Client>>> SearchClientsByName(string name)
         {
-            var clients = await _clientRepository.GetByNameAsync(name);
+            var clients = await _clientService.GetByNameAsync(name);
 
             if (!clients.Any())
             {
@@ -43,7 +43,7 @@ namespace LAB08WILSONDCV.Controllers
         [HttpGet("with-most-orders")]
         public async Task<ActionResult<ClientWithOrderCountDto>> GetClientWithMostOrders()
         {
-            var client = await _clientRepository.GetClientWithMostOrdersAsync();
+            var client = await _clientService.GetClientWithMostOrdersAsync();
             if (client == null)
             {
                 return NotFound("No se encontraron clientes o pedidos.");
@@ -55,7 +55,7 @@ namespace LAB08WILSONDCV.Controllers
         [HttpGet("{clientId}/products")]
         public async Task<ActionResult<IEnumerable<Product>>> GetProductsSoldToClient(int clientId)
         {
-            var products = await _clientRepository.GetProductsSoldToClientAsync(clientId);
+            var products = await _clientService.GetProductsSoldToClientAsync(clientId);
             if (!products.Any())
             {
                 return NotFound($"No se encontraron productos vendidos al cliente con ID {clientId}.");
@@ -65,7 +65,7 @@ namespace LAB08WILSONDCV.Controllers
         [HttpGet("with-product-count")]
         public async Task<ActionResult<IEnumerable<ClientProductCountDto>>> GetClientsWithProductCount()
         {
-            var clients = await _clientRepository.GetClientsWithProductCountAsync();
+            var clients = await _clientService.GetClientsWithProductCountAsync();
             return Ok(clients);
         }   
     }

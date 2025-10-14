@@ -70,6 +70,19 @@ namespace LAB08WILSONDCV.Repositories
                 })
                 .ToListAsync();
         }
+
+        public async Task<IEnumerable<SalesByClientDto>> GetTotalSalesByClientAsync()
+        {
+            return await _context.Clients
+                .AsNoTracking()
+                .Select(c => new SalesByClientDto
+                {
+                    ClientName = c.Name,
+                    TotalSales = c.Orders.SelectMany(o => o.OrderDetails)
+                                        .Sum(od => od.Quantity * od.Product.Price)
+                })
+                .ToListAsync();
+        }
     }
 }
 

@@ -91,5 +91,12 @@ namespace LAB08WILSONDCV.Repositories
                 })
                 .ToListAsync();
         }
+
+        public async Task<decimal> GetTotalSalesAsync()
+        {
+            return await _context.OrderDetails
+                .AsNoTracking()
+                .SumAsync(od => od.Quantity * od.Product.Price);
+        }
     }
 }

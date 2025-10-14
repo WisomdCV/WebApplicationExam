@@ -1,6 +1,7 @@
 using LAB08WILSONDCV.Data;
 using LAB08WILSONDCV.Interfaces;
 using LAB08WILSONDCV.Repositories;
+using LAB08WILSONDCV.Services;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -18,6 +19,11 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddScoped<IClientRepository, ClientRepository>();
 builder.Services.AddScoped<IProductRepository, ProductRepository>();
 builder.Services.AddScoped<IOrderRepository, OrderRepository>();
+
+// NUEVO: Registro de Servicios
+builder.Services.AddScoped<IClientService, ClientService>();
+builder.Services.AddScoped<IOrderService, OrderService>();
+builder.Services.AddScoped<IProductService, ProductService>();
 
 var app = builder.Build();
 

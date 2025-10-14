@@ -1,4 +1,4 @@
-using LAB08WILSONDCV.Interfaces;
+using LAB08WILSONDCV.Services; // ¡Añade este!
 using LAB08WILSONDCV.Models;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
@@ -11,18 +11,18 @@ namespace LAB08WILSONDCV.Controllers
     [Route("api/[controller]")]
     public class ProductsController : ControllerBase
     {
-        private readonly IProductRepository _productRepository;
+        private readonly IProductService _productService;
 
-        public ProductsController(IProductRepository productRepository)
+        public ProductsController(IProductService productService) // Inyecta el servicio
         {
-            _productRepository = productRepository;
+            _productService = productService;
         }
 
         //ej2
         [HttpGet("price-greater-than/{price}")]
         public async Task<ActionResult<IEnumerable<Product>>> GetProductsByPrice(decimal price)
         {
-            var products = await _productRepository.GetByPriceGreaterThanAsync(price);
+            var products = await _productService.GetByPriceGreaterThanAsync(price);
 
             if (!products.Any())
             {
@@ -35,7 +35,7 @@ namespace LAB08WILSONDCV.Controllers
         [HttpGet("most-expensive")]
         public async Task<ActionResult<Product>> GetMostExpensiveProduct()
         {
-            var product = await _productRepository.GetMostExpensiveAsync();
+            var product = await _productService.GetMostExpensiveAsync();
 
             if (product == null)
             {
@@ -48,7 +48,7 @@ namespace LAB08WILSONDCV.Controllers
         [HttpGet("average-price")]
         public async Task<ActionResult<decimal>> GetAverageProductPrice()
         {
-            var average = await _productRepository.GetAveragePriceAsync();
+            var average = await _productService.GetAveragePriceAsync();
             return Ok(average);
         }
 
@@ -56,7 +56,7 @@ namespace LAB08WILSONDCV.Controllers
         [HttpGet("without-description")]
         public async Task<ActionResult<IEnumerable<Product>>> GetProductsWithoutDescription()
         {
-            var products = await _productRepository.GetProductsWithoutDescriptionAsync();
+            var products = await _productService.GetProductsWithoutDescriptionAsync();
             if (!products.Any())
             {
                 return NotFound("No se encontraron productos sin descripción.");
@@ -67,7 +67,7 @@ namespace LAB08WILSONDCV.Controllers
         [HttpGet("{productId}/buyers")]
         public async Task<ActionResult<IEnumerable<Client>>> GetClientsByProduct(int productId)
         {
-            var clients = await _productRepository.GetClientsByProductAsync(productId);
+            var clients = await _productService.GetClientsByProductAsync(productId);
             if (!clients.Any())
             {
                 return NotFound($"Ningún cliente ha comprado el producto con ID {productId}.");

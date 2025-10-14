@@ -1,10 +1,9 @@
 using LAB08WILSONDCV.DTOs;
-using LAB08WILSONDCV.Interfaces;
+using LAB08WILSONDCV.Services;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using LAB08WILSONDCV.Models;
 
 namespace LAB08WILSONDCV.Controllers
 {
@@ -12,18 +11,18 @@ namespace LAB08WILSONDCV.Controllers
     [Route("api/[controller]")]
     public class OrdersController : ControllerBase
     {
-        private readonly IOrderRepository _orderRepository;
+        private readonly IOrderService _orderService;
 
-        public OrdersController(IOrderRepository orderRepository)
+        public OrdersController(IOrderService orderService)
         {
-            _orderRepository = orderRepository;
+            _orderService = orderService;
         }
 
         //ej3
         [HttpGet("{orderId}/details")]
         public async Task<ActionResult<IEnumerable<ProductDetailDto>>> GetOrderDetails(int orderId)
         {
-            var details = await _orderRepository.GetProductDetailsByOrderIdAsync(orderId);
+            var details = await _orderService.GetProductDetailsByOrderIdAsync(orderId);
 
             if (!details.Any())
             {
@@ -37,7 +36,7 @@ namespace LAB08WILSONDCV.Controllers
         [HttpGet("{orderId}/total-quantity")]
         public async Task<ActionResult<int>> GetTotalQuantityInOrder(int orderId)
         {
-            var totalQuantity = await _orderRepository.GetTotalProductQuantityByOrderIdAsync(orderId);
+            var totalQuantity = await _orderService.GetTotalProductQuantityByOrderIdAsync(orderId);
             
             if (totalQuantity == null)
             {
@@ -53,7 +52,7 @@ namespace LAB08WILSONDCV.Controllers
             //fix utc
             var utcDate = DateTime.SpecifyKind(date, DateTimeKind.Utc);
             
-            var orders = await _orderRepository.GetOrdersAfterDateAsync(utcDate);
+            var orders = await _orderService.GetOrdersAfterDateAsync(utcDate);
 
             if (!orders.Any())
             {
@@ -66,7 +65,7 @@ namespace LAB08WILSONDCV.Controllers
         [HttpGet("with-details")]
         public async Task<ActionResult<IEnumerable<OrderWithDetailsDto>>> GetAllOrdersWithDetails()
         {
-            var orders = await _orderRepository.GetAllOrdersWithDetailsAsync();
+            var orders = await _orderService.GetAllOrdersWithDetailsAsync();
             return Ok(orders);
         }
     }

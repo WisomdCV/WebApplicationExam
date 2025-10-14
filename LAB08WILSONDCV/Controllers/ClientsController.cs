@@ -67,6 +67,13 @@ namespace LAB08WILSONDCV.Controllers
         {
             var clients = await _clientService.GetClientsWithProductCountAsync();
             return Ok(clients);
-        }   
+        }
+
+        [HttpGet("total-sales")]
+        public async Task<ActionResult<IEnumerable<SalesByClientDto>>> GetTotalSalesByClient()
+        {
+            var sales = await _clientService.GetTotalSalesByClientAsync();
+            return Ok(sales);
+        }
     }
 }

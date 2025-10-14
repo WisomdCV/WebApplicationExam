@@ -81,6 +81,7 @@ namespace LAB08WILSONDCV.Repositories
                     TotalSales = c.Orders.SelectMany(o => o.OrderDetails)
                                         .Sum(od => od.Quantity * od.Product.Price)
                 })
+                .OrderByDescending(s => s.TotalSales)
                 .ToListAsync();
         }
     }

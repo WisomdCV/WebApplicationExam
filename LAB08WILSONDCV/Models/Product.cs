@@ -12,7 +12,7 @@ namespace LAB08WILSONDCV.Models
         public int ProductId { get; set; }
 
         [Column("name")]
-        public string Name { get; set; }
+        public string Name { get; set; } = string.Empty;
 
         // La descripción puede ser nula, por eso el '?'
         [Column("description")]

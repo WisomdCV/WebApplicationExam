@@ -21,10 +21,10 @@ namespace LAB08WILSONDCV.Models
 
         // Propiedad de navegación: Cada detalle pertenece a una orden.
         [ForeignKey("OrderId")]
-        public virtual Order Order { get; set; }
+        public virtual Order Order { get; set; } = null!;
 
         // Propiedad de navegación: Cada detalle tiene un producto.
         [ForeignKey("ProductId")]
-        public virtual Product Product { get; set; }
+        public virtual Product Product { get; set; } = null!;
     }
 }

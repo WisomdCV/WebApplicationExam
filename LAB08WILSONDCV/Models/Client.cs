@@ -13,10 +13,10 @@ namespace LAB08WILSONDCV.Models
         public int ClientId { get; set; }
 
         [Column("name")]
-        public string Name { get; set; }
+        public string Name { get; set; } = string.Empty;
 
         [Column("email")]
-        public string Email { get; set; }
+        public string Email { get; set; } = string.Empty;
 
         // Propiedad de navegación: Un cliente puede tener muchas órdenes.
         public virtual ICollection<Order> Orders { get; set; } = new List<Order>();

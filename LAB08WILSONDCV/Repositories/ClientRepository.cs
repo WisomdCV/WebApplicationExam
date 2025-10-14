@@ -1,7 +1,5 @@
 using LAB08WILSONDCV.Data;
 using LAB08WILSONDCV.Interfaces;
-using LAB08WILSONDCV.Data;
-using LAB08WILSONDCV.Interfaces;
 using LAB08WILSONDCV.Models;
 using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
@@ -57,6 +55,19 @@ namespace LAB08WILSONDCV.Repositories
                 .SelectMany(o => o.OrderDetails) 
                 .Select(od => od.Product)      
                 .Distinct()                     
+                .ToListAsync();
+        }
+        public async Task<IEnumerable<ClientProductCountDto>> GetClientsWithProductCountAsync()
+        {
+            return await _context.Clients
+                .AsNoTracking()
+                .Select(client => new ClientProductCountDto
+                {
+                    ClientName = client.Name,
+                    TotalProducts = client.Orders
+                                        .SelectMany(order => order.OrderDetails)
+                                        .Sum(detail => detail.Quantity)
+                })
                 .ToListAsync();
         }
     }

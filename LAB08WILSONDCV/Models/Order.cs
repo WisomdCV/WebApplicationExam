@@ -20,7 +20,7 @@ namespace LAB08WILSONDCV.Models
 
         // Propiedad de navegación: Cada orden pertenece a un cliente.
         [ForeignKey("ClientId")]
-        public virtual Client Client { get; set; }
+        public virtual Client Client { get; set; } = null!;
 
         // Propiedad de navegación: Cada orden tiene muchos detalles.
         public virtual ICollection<OrderDetail> OrderDetails { get; set; } = new List<OrderDetail>();

@@ -62,5 +62,11 @@ namespace LAB08WILSONDCV.Controllers
             }
             return Ok(products);
         }
+        [HttpGet("with-product-count")]
+        public async Task<ActionResult<IEnumerable<ClientProductCountDto>>> GetClientsWithProductCount()
+        {
+            var clients = await _clientRepository.GetClientsWithProductCountAsync();
+            return Ok(clients);
+        }   
     }
 }

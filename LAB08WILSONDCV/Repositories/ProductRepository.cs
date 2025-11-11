@@ -58,5 +58,10 @@ namespace LAB08WILSONDCV.Repositories
                 .Distinct() // cliente una sola vez
                 .ToListAsync();
         }
+
+        public async Task<IEnumerable<Product>> GetAllProductsAsync()
+        {
+            return await _context.Products.AsNoTracking().ToListAsync();
+        }
     }
 }

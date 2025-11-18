@@ -24,6 +24,6 @@ jobs:
       - name: Build
         run: dotnet build --no-restore --configuration Release
       
-      # AQUÍ ESTABA EL ERROR: Ahora apuntamos al archivo .csproj específico
+      # CAMBIO AQUÍ: Ya no ponemos "LAB08WILSONDCV/..." solo el nombre del archivo
       - name: Publish
-        run: dotnet publish LAB08WILSONDCV/LAB08WILSONDCV.csproj --no-build --configuration Release --output ./publishedPued
+        run: dotnet publish LAB08WILSONDCV.csproj --no-build --configuration Release --output ./published

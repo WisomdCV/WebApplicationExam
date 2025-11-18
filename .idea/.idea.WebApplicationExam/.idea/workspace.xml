@@ -9,8 +9,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="80c2b520-5006-4b13-9d15-7e62d79b6bc8" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.github/workflows/dotnet.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.WebApplicationExam/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.WebApplicationExam/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.github/workflows/dotnet.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.github/workflows/dotnet.yml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -137,7 +136,7 @@
       <workItem from="1759861570638" duration="3185000" />
       <workItem from="1759864837785" duration="9784000" />
       <workItem from="1762891258362" duration="1770000" />
-      <workItem from="1763491945596" duration="2169000" />
+      <workItem from="1763491945596" duration="2758000" />
     </task>
     <servers />
   </component>

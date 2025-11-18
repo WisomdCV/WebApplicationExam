@@ -23,6 +23,7 @@ jobs:
 
       - name: Build
         run: dotnet build --no-restore --configuration Release
-
-      - name: Publish (Optional verification)
-        run: dotnet publish --no-build --configuration Release --output ./published
+      
+      # AQUÍ ESTABA EL ERROR: Ahora apuntamos al archivo .csproj específico
+      - name: Publish
+        run: dotnet publish LAB08WILSONDCV/LAB08WILSONDCV.csproj --no-build --configuration Release --output ./published
